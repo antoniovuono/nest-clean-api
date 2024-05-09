@@ -27,7 +27,7 @@ export class CreateAccountController {
   @Post()
   @HttpCode(201)
   async handle(@Body() body: CreateAccountBody) {
-    const { name, email, password } = createAccountBodySchema.parse(body)
+    const { name, email, password } = body
 
     const userAlreadyExists = await this.prisma.user.findUnique({
       where: {
